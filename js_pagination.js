@@ -23,7 +23,7 @@ var drawPagination = function( element, page, per_page, total_items, number_link
 	var link_cnt = 0;
 
 	// total_items count
-	links[link_cnt] = {'text':'found '+ total_items, 'url':null};
+	links[link_cnt] = {'text':'Found '+ total_items, 'url':null};
 	
 	// prev link
 	if(page > 1) {
@@ -38,8 +38,10 @@ var drawPagination = function( element, page, per_page, total_items, number_link
 	}
 	
 	// current page link
-	link_cnt++;
-	links[link_cnt] = {'text':page,'url':null};
+	if(last_page > 1) {
+		link_cnt++;
+		links[link_cnt] = {'text':page,'url':null};
+	}
 
 	// nextlinks
 	for(var i = page + 1; i <= page + nextlinks; i++) {
